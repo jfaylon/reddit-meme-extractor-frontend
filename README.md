@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Reddit Meme Extractor Frontend
+
+A frontend web application built with **Next.js 15**, **React 19**, **Tailwind CSS**, and **React Toastify**, designed to display and interact with memes fetched from Reddit. This frontend connects to a backend API that handles data retrieval, storage, and processing.
+
+
+## Tech Stack
+
+| Tool / Library      | Version     |
+|--------------------|-------------|
+| Next.js             | 15.3.x      |
+| React               | 19.x        |
+| Tailwind CSS        | 4.x         |
+| Axios               | 1.9.x       |
+| React Toastify      | 11.x        |
+| Serverless Framework| 3.40.x      |
+| Node.js             | 22.x        |
+
+---
+
+## Features
+
+- Displays top memes from a configured subreddit (retrieved from backend API)
+- Supports date-based filtering of memes
+- Toast notifications for success/error feedback
+- Responsive UI powered by Tailwind CSS
+- Serverless simulation via `serverless-offline`
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- **Node.js** version **22.x** (or higher)
+
+Check if Node.js is installed:
+
+```bash
+node -v
+```
+
+If you see a version lower than `v22.0.0` or **command not found**, install Node.js 22.x from [https://nodejs.org/en/download/](https://nodejs.org/en/download/) or using a version manager like `nvm`:
+
+```bash
+nvm install 22
+nvm use 22
+```
+
+---
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/jfaylon/reddit-meme-extractor-frontend.git
+cd reddit-meme-extractor-frontend
+```
+
+### 📥 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Create environment file
+
+The frontend expects a backend API accessible via an environment variable.
+
+Create a `.env` file in the root directory:
+
+```env
+NEXT_PUBLIC_BACKEND_API_URL=http://localhost:8000
+```
+
+Replace `http://localhost:8000` with your actual backend API URL.
+
+OR
+
+Copy the .env.example file to become .env
+
+```bash
+cp .env.example .env
+```
+
+---
+
+
+### 🏃‍♂️ 4a. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+OR
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🏃‍♂️ 4b. Run the development server via serverless-offline
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run offline
+```
 
-## Learn More
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+While this is a frontend app, it is compatible with serverless deployment using the Serverless Framework upon configuration. You can deploy it together with a backend service or independently to platforms like Vercel or AWS Lambda@Edge.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Future Enhancements
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Support for multiple subreddits
+- Dark mode toggle
+- Infinite scroll
+- Sorting posts by rank or score
